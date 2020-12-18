@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     avatar: {
-        color: "#F7F7F7",
+        backgroundColor: "#EEECEC",
     },
 }));
 
@@ -83,7 +83,7 @@ function InteractiveList({ tasks, search }) {
                                         )}
                                         <IconButton
                                             edge="end"
-                                            aria-label="delete"
+                                            aria-label="start"
                                             disabled={item.start || item.stop}
                                             onClick={() => dispatch(startTask(item._id))}
                                         >
@@ -91,13 +91,13 @@ function InteractiveList({ tasks, search }) {
                                         </IconButton>
                                         <IconButton
                                             edge="end"
-                                            aria-label="delete"
+                                            aria-label="stop"
                                             disabled={item.stop || !item.start}
                                             onClick={() => dispatch(stopTask(item._id))}
                                         >
                                             <StopIcon />
                                         </IconButton>
-                                        <IconButton edge="end" aria-label="delete">
+                                        <IconButton edge="end" aria-label="edit" onClick={() => alert("TLE Here :)")}>
                                             <EditIcon />
                                         </IconButton>
                                         <IconButton
