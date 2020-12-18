@@ -40,7 +40,7 @@ function FreeSoloCreateOption({ tags, value, setValue }) {
             selectOnFocus
             clearOnBlur
             handleHomeEndKeys
-            id="free-solo-with-text-demo"
+            id="tag"
             options={tags || []}
             getOptionLabel={(option) => {
                 // Value selected with enter, right from the input
@@ -59,9 +59,7 @@ function FreeSoloCreateOption({ tags, value, setValue }) {
             renderOption={(option) => option.tag}
             // style={{ width: 300 }}
             freeSolo
-            renderInput={(params) => (
-                <TextField {...params} label="Free solo with text demo" variant="outlined" fullWidth />
-            )}
+            renderInput={(params) => <TextField {...params} label="Choose a Tag" variant="outlined" fullWidth />}
         />
     );
 }
