@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteTag } from "../redux/tag/tagActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,26 +21,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChipsArray({ tags }) {
+    const dispatch = useDispatch();
     const classes = useStyles();
-
-    const handleDelete = (chipId) => () => {};
+    const handleDelete = (chipId) => {
+        dispatch(deleteTag(chipId));
+    };
 
     return (
-        <Paper component="ul" className={classes.root} elevation={0} variant="outlined">
-            {tags.map((data) => {
-                return (
-                    <li key={data.key}>
-                        <Chip
-                            size="small"
-                            color="primary"
-                            label={data.tag}
-                            onDelete={handleDelete(data._id)}
-                            className={classes.chip}
-                        />
-                    </li>
-                );
-            })}
-        </Paper>
+        (Array.isArray(tags) && tags.length && (
+            <Paper component="ul" className={classes.root} elevation={0} variant="outlined">
+                {tags.map((data) => {
+                    return (
+                        <li key={data.key}>
+                            <Chip
+                                size="small"
+                                color="primary"
+                                label={data.tag}
+                                onDelete={() => handleDelete(data._id)}
+                                className={classes.chip}
+                            />
+                        </li>
+                    );
+                })}
+            </Paper>
+        )) ||
+        null
     );
 }
 

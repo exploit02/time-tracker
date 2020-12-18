@@ -1,4 +1,4 @@
-import { CREATE_TAG } from "./actionType";
+import { CREATE_TAG, DELETE_TAG } from "./actionType";
 import { uuid } from "uuidv4";
 
 export const createTag = (data) => {
@@ -8,3 +8,8 @@ export const createTag = (data) => {
         payload,
     };
 };
+
+export const deleteTag = (_id) => ({
+    type: DELETE_TAG,
+    payload: _id,
+});
