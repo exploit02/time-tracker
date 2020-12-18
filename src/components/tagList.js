@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { deleteTag } from "../redux/tag/tagActions";
+import { Grid, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +31,9 @@ function ChipsArray({ tags }) {
     return (
         (Array.isArray(tags) && tags.length && (
             <Paper component="ul" className={classes.root} elevation={0} variant="outlined">
+                <Grid container justify="center">
+                    <Typography variant="h6"> Available Tags</Typography>
+                </Grid>
                 {tags.map((data) => {
                     return (
                         <li key={data.key}>
