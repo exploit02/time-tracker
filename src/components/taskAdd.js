@@ -67,10 +67,14 @@ export default function CustomizedDialogs() {
     };
 
     const saveTask = () => {
-        dispatch(createTask({ task, tag }));
-        handleClose();
-        setTag("");
-        setTask("");
+        if (task) {
+            dispatch(createTask({ task, tag }));
+            handleClose();
+            setTag("");
+            setTask("");
+        } else {
+            alert("Task Can't be empty");
+        }
     };
 
     return (

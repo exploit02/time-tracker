@@ -72,9 +72,13 @@ export default function CustomizedDialogs() {
     };
 
     const saveTag = () => {
-        dispatch(createTag(state));
-        setstate({ tag: "" });
-        handleClose();
+        if (state.tag) {
+            dispatch(createTag(state));
+            setstate({ tag: "" });
+            handleClose();
+        } else {
+            alert("Name your Tag");
+        }
     };
 
     return (
