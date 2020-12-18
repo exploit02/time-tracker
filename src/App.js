@@ -3,6 +3,7 @@ import TopNav from "./components/topNav";
 import TaskAdd from "./components/taskAdd";
 import AddTag from "./components/addTags";
 import TaskList from "./components/taskList";
+import TagList from "./components/tagList";
 import { Container, Divider, Grid, makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
@@ -67,8 +68,12 @@ function App() {
                         <Grid item xs={12} sm={12} md={12} className={classes.margin}>
                             <Divider />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={12}>
+                        <Grid item xs={7} sm={7} md={7}>
                             <TaskList search={search} />
+                        </Grid>
+                        <Grid item xs={1} sm={1} md={1}></Grid>
+                        <Grid item xs={4} sm={4} md={4}>
+                            <TagList />
                         </Grid>
                     </Grid>
                 </Container>
